@@ -1,10 +1,7 @@
 import cv2
 import os
 import datetime
-from sklearn.cluster import DBSCAN
-from sklearn.metrics.pairwise import cosine_similarity
 from tqdm import tqdm
-import shutil
 import json
 from ultralytics import YOLO
 
