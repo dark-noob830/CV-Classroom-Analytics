@@ -28,22 +28,19 @@ This project is an intelligent system that analyzes student attendance and engag
 ## 📂 Project Structure
 
 ```
-project-root/
+A/                           # Root project folder
 │
-├── data/
-│   ├── raw_videos/          # Raw class videos
-│   └── processed_faces/     # Preprocessed faces (upscaled, aligned)
-│
-├── grouped_faces/           # Manually reviewed and corrected face clusters
+├── videos/                  # Raw Videos
 ├── models/                  # Downloaded models (e.g., EDSR_x4.pb)
-├── src/                     # Main project source code
-│   ├── 01_preprocess_faces.py    # Script for preprocessing and face extraction
-│   ├── 02_cluster_faces.py       # Script for clustering
-│   ├── 03_create_database.py     # Script for creating the recognition database
-│   └── 04_main_analysis.py       # Main script for video analysis
+├── data_extract/            # All face extraction and processing outputs
+│   ├── processed_faces/     # Preprocessed faces
+│   ├── temp_faces/          # Temporary face crops
+│   ├── final_grouped_faces/ # Manually reviewed and corrected face clusters
+│   └── database/            # Recognition database
 │
-├── requirements.txt         # List of required libraries
-└── README.md                # This file
+├── face_extractor.py
+├── upscale.py
+└── project.ipynb
 ```
 
 ---
