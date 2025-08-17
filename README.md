@@ -123,15 +123,23 @@ The project workflow is divided into several steps:
   ```
 
 ---
-**Step 2: Cluster the Faces and Create the Recognition Database**
-This script automatically clusters the processed faces into separate groups based on identity and saves them in the
-`temp_grouped_faces` directory.
-`project.ipynb`run the cells.
+**Step 2: Cluster Faces and Build the Recognition Database
 
-**Note:** After this step, a **manual review and correction** of the generated folders is essential to ensure database
-accuracy in `final_grouped_faces`.
+1. Run the provided cells in project.ipynb.
 
-after that run following cell and `person_medoids.pt` is database of groups.
+   - The script will automatically cluster the processed faces by identity.
+
+   - Results are stored in the temp_grouped_faces directory.
+
+2. Manually review and correct the generated folders.
+
+   - This step is essential to ensure database accuracy.
+
+   - Save the corrected version in final_grouped_faces.
+
+3. Run the next cell to generate person_medoids.pt based on the contents of final_grouped_faces.
+
+   - ⚠️ If you make any changes to final_grouped_faces, re-run this cell to update the file.
 
 ---
 
