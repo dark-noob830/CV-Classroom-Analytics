@@ -3,9 +3,9 @@ import os
 import datetime
 from tqdm import tqdm
 import json
-from ultralytics import YOLO
+from face_detection import RetinaFace
 
-# from mtcnn import MTCNN
+detector = RetinaFace(gpu_id=-1)
 VIDEO_DIR = 'videos'
 
 DATA_EXTRACT_DIR = 'data_extract'
@@ -30,7 +30,7 @@ def extract_faces_from_videos():
     print("extract faces from videos")
 
     # detector = MTCNN()
-    model = YOLO('./models/yolov12n-face.pt')
+    # model = YOLO('./models/yolov12n-face.pt')
     video_files = [f for f in os.listdir(VIDEO_DIR) if f.endswith(('.mp4', '.avi', '.mov'))]
     print(f"count videos: {len(video_files)}")
 
@@ -50,49 +50,48 @@ def extract_faces_from_videos():
             # extract in every 600 frame
             if frame_count % 600 == 0:
                 try:
-                    faces = model(frame)
+                    faces = detector(frame)
 
                     for face in faces:
-                        boxes = face.boxes.xyxy.cpu().numpy()  # x1, y1, x2, y2
-                        scores = face.boxes.conf.cpu().numpy()
-                        # MTCNN
-                        # x, y, w, h = face['box']
-                        # confidence = face['confidence']
-                        for box, score in zip(boxes, scores):
-                            x1, y1, x2, y2 = map(int, box)
-                            face_area = (x2 - x1) * (y2 - y1)
-                            if face_area < 450:
-                                continue
-                            elif face_area < 800:
-                                min_confidence = 0.4
-                            elif face_area < 1200:
-                                min_confidence = 0.5
-                            elif face_area < 1500:
-                                min_confidence = 0.65
-                            elif face_area < 2500:
-                                min_confidence = 0.75
-                            else:
-                                min_confidence = 0.8
+                        bbox, landmarks, score = face
+                        x1, y1, x2, y2 = map(int, bbox)
+                        h, w, _ = frame.shape
+                        x1, y1 = max(0, x1), max(0, y1)
+                        x2, y2 = min(w, x2), min(h, y2)
+                        face_area = (x2 - x1) * (y2 - y1)
 
-                            if score > min_confidence:
-                                face_img = frame[y1:y2, x1:x2]
+                        if face_area < 450:
+                            continue
+                        elif face_area < 800:
+                            min_confidence = 0.4
+                        elif face_area < 1200:
+                            min_confidence = 0.5
+                        elif face_area < 1500:
+                            min_confidence = 0.65
+                        elif face_area < 2500:
+                            min_confidence = 0.75
+                        else:
+                            min_confidence = 0.8
 
-                                face_filename = os.path.join('data_extract', TEMP_FACES_DIR,
-                                                             f'face_{face_id_counter}.jpg')
-                                cv2.imwrite(face_filename, face_img)
-                                time_sec = frame_count / fps
+                        if score > min_confidence:
+                            face_img = frame[y1:y2, x1:x2]
 
-                                face_metadata.append({
-                                    'id': int(face_id_counter),
-                                    'video': str(video_file),
-                                    'time': str(datetime.timedelta(seconds=int(time_sec))),
-                                    'frame': str(frame_count),
-                                    'box': [float(x1), float(y1), float(x2 - x1), float(y2 - y1)],
-                                    'confidence': float(score),
-                                    'filename': str(face_filename)
-                                })
+                            face_filename = os.path.join('data_extract', TEMP_FACES_DIR,
+                                                         f'face_{face_id_counter}.jpg')
+                            cv2.imwrite(face_filename, face_img)
+                            time_sec = frame_count / fps
 
-                                face_id_counter += 1
+                            face_metadata.append({
+                                'id': int(face_id_counter),
+                                'video': str(video_file),
+                                'time': str(datetime.timedelta(seconds=int(time_sec))),
+                                'frame': str(frame_count),
+                                'box': [float(x1), float(y1), float(x2 - x1), float(y2 - y1)],
+                                'confidence': float(score),
+                                'filename': str(face_filename)
+                            })
+
+                            face_id_counter += 1
 
                 except Exception as e:
                     print(f"Error in frame process fram_id:{frame_count} error: {e}")
