@@ -123,7 +123,7 @@ The project workflow is divided into several steps:
   ```
 
 ---
-**Step 2: Cluster Faces and Build the Recognition Database
+**Step 3: Cluster Faces and Build the Recognition Database**
 
 1. Run the provided cells in project.ipynb.
 
