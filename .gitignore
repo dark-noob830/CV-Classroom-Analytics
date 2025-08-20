@@ -1,6 +1,6 @@
 videos
 data_extract
 .idea
-
+!data_extract/person_medoids.pt
 
 face_detection.ipynb
