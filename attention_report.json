@@ -1,81 +1,79 @@
 {
-  "timestamp": "2025-09-19T17:31:14.978520",
-  "total_faces_tracked": 10,
+  "timestamp": "2025-09-19T18:04:38.826326",
+  "total_faces_tracked": 9,
   "individual_stats": {
     "face_2": {
-      "average_attention": 0.704,
-      "total_frames": 24.0,
+      "average_attention": 0.736,
+      "total_frames": 11.0,
       "target_distribution": {
-        "center": 10.0,
-        "distracted": 6.0,
-        "laptop": 8.0
+        "center": 5.0,
+        "distracted": 1.0,
+        "laptop": 5.0
       }
     },
     "face_3": {
-      "average_attention": 0.728,
-      "total_frames": 18.0,
+      "average_attention": 0.709,
+      "total_frames": 11.0,
       "target_distribution": {
-        "center": 12.0,
-        "distracted": 4.0,
-        "laptop": 1.0,
-        "instructor": 1.0
+        "center": 7.0,
+        "distracted": 3.0,
+        "laptop": 1.0
       }
     },
     "face_4": {
-      "average_attention": 0.769,
-      "total_frames": 35.0,
+      "average_attention": 0.745,
+      "total_frames": 22.0,
       "target_distribution": {
-        "instructor": 3.0,
-        "laptop": 5.0,
-        "center": 26.0,
+        "instructor": 1.0,
+        "laptop": 3.0,
+        "center": 17.0,
         "distracted": 1.0
       }
     },
     "face_5": {
-      "average_attention": 0.746,
-      "total_frames": 41.0,
+      "average_attention": 0.75,
+      "total_frames": 24.0,
       "target_distribution": {
-        "distracted": 3.0,
+        "distracted": 2.0,
         "laptop": 3.0,
-        "center": 28.0,
-        "instructor": 7.0
+        "center": 17.0,
+        "instructor": 2.0
       }
     },
     "face_1": {
-      "average_attention": 0.775,
-      "total_frames": 16.0,
+      "average_attention": 0.75,
+      "total_frames": 4.0,
       "target_distribution": {
-        "center": 8.0,
-        "laptop": 7.0,
-        "distracted": 1.0
+        "center": 3.0,
+        "laptop": 1.0
       }
     },
     "face_6": {
-      "average_attention": 0.742,
-      "total_frames": 33.0,
+      "average_attention": 0.747,
+      "total_frames": 19.0,
       "target_distribution": {
-        "instructor": 4.0,
-        "center": 23.0,
+        "instructor": 3.0,
+        "center": 10.0,
         "distracted": 1.0,
         "laptop": 5.0
       }
     },
     "face_7": {
-      "average_attention": 0.728,
-      "total_frames": 18.0,
+      "average_attention": 0.721,
+      "total_frames": 14.0,
       "target_distribution": {
-        "center": 9.0,
-        "laptop": 6.0,
+        "center": 6.0,
+        "laptop": 5.0,
         "distracted": 2.0,
         "instructor": 1.0
       }
     },
     "face_8": {
-      "average_attention": 0.775,
-      "total_frames": 8.0,
+      "average_attention": 0.8,
+      "total_frames": 7.0,
       "target_distribution": {
         "center": 6.0,
-        "distracted": 2.0
+        "distracted": 1.0
       }
     },
     "face_9": {
@@ -84,27 +82,18 @@
       "target_distribution": {
         "center": 1.0
       }
-    },
-    "face_0": {
-      "average_attention": 0.725,
-      "total_frames": 4.0,
-      "target_distribution": {
-        "laptop": 1.0,
-        "center": 2.0,
-        "distracted": 1.0
-      }
     }
   },
   "class_summary": {
     "average_attention": 0.729,
-    "std_attention": 0.049,
-    "highly_engaged": 9,
+    "std_attention": 0.051,
+    "highly_engaged": 8,
     "moderately_engaged": 1,
     "low_engaged": 0,
     "target_distribution": {
-      "laptop": 36.0,
-      "distracted": 21.0,
-      "instructor": 16.0
+      "laptop": 23.0,
+      "distracted": 11.0,
+      "instructor": 7.0
     }
   }
 }

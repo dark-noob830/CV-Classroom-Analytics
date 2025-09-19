@@ -159,17 +159,17 @@ The project workflow is divided into several comprehensive steps:
 
 ```bash
 # Complete analysis: Detection + Recognition + Emotions
-python faceDetection_emotion_analysis.py --video videos/Team_3.mp4 --show
+python faceDetection_emotion_analysis.py --video videos/Team_3.mp4
 
 # Emotion analysis only
 python emotion_analysis_only.py --video videos/Team_3.mp4
 
 # Attention analysis (eye gaze + head pose)
-python attention_analysis.py --video videos/Team_3.mp4 --show --calibrate
+python attention_analysis.py --video videos/Team_3.mp4
 # Outputs: attention_output.mp4, attention_report.json
 
 # Basic detection and tracking
-python detect_track_recognition.py --video videos/Team_3.mp4
+python detect_track_recognition_v2.py --video videos/Team_3.mp4
 ```
 
 ### **Phase 4: Advanced Features**
@@ -226,12 +226,12 @@ python detect_track_recognition.py --video videos/Team_3.mp4
 python faceDetection_emotion_analysis.py [OPTIONS]
 
 Options:
-  --video PATH           Path to input video file
-  --output PATH          Path to output video file
-  --show                 Show video window during processing
-  --no-show              Process without displaying video
-  --skip-frames N        Process every N frames (default: 2)
+  --video PATH           Path to input video file (default: videos/Team_3.mp4)
+  --database PATH        Path to face database (default: data_extract/person_medoids.pt)
 ```
+
+**Output Example:**
+![Face Detection & Emotion Analysis](images/faceDetection_emotion_analysis.png)
 
 ### **Emotion Analysis Only**
 
@@ -239,11 +239,14 @@ Options:
 python emotion_analysis_only.py [OPTIONS]
 
 Options:
-  --video PATH           Path to input video file
-  --output PATH          Path to output video file
+  --video PATH           Path to input video file (default: videos/Team_3.mp4)
+  --output PATH          Path to output video file (default: emotion_output.mp4)
   --no-show              Process without displaying video
   --skip-frames N        Process every N frames (default: 2)
 ```
+
+**Output Example:**
+![Emotion Analysis Only](images/emotion_analysis_only.png)
 
 ### **Attention Analysis**
 
@@ -251,25 +254,56 @@ Options:
 python attention_analysis.py [OPTIONS]
 
 Options:
-  --video PATH           Path to input video file
+  --video PATH           Path to input video file (required)
   --output PATH          Path to output video file (default: attention_output.mp4)
-  --show                 Show video window during processing
-  --calibrate            Run calibration mode for attention zones
   --report PATH          Path to analysis report (default: attention_report.json)
+  --no-show              Process without showing window
+  --skip-frames N        Process every N frames (default: 1)
 
 # Example usage:
-python attention_analysis.py --video videos/Team_3.mp4 --show --calibrate
+python attention_analysis.py --video videos/Team_3.mp4
 # This will create:
 # - attention_output.mp4 (processed video)
 # - attention_report.json (analysis data)
 ```
 
+**Output Example:**
+![Attention Analysis](images/attention_analysis.png)
+
 ### **Basic Detection and Tracking**
 
 ```bash
-# Basic detection and tracking
-python detect_track_recognition.py --video videos/Team_3.mp4
+python detect_track_recognition_v2.py [OPTIONS]
+
+Options:
+  --video PATH           Path to input video file (default: videos/Team_3.mp4)
+  --database PATH        Path to face database (default: data_extract/person_medoids.pt)
 ```
+
+**Output Example:**
+![Basic Detection and Tracking](images/detect_track_recognition.png)
+
+---
+
+## 📸 Visual Examples
+
+Here are the visual outputs you can expect from each analysis script:
+
+### **Complete Analysis System**
+![Face Detection & Emotion Analysis](images/faceDetection_emotion_analysis.png)
+*Complete face detection, recognition, and emotion analysis with real-time tracking*
+
+### **Emotion Analysis Only**
+![Emotion Analysis Only](images/emotion_analysis_only.png)
+*Focused emotion detection and analysis without identity recognition*
+
+### **Attention Analysis**
+![Attention Analysis](images/attention_analysis.png)
+*Advanced attention tracking with eye gaze and head pose estimation*
+
+### **Basic Detection and Tracking**
+![Basic Detection and Tracking](images/detect_track_recognition.png)
+*Simple face detection and tracking with identity recognition*
 
 ---
 
