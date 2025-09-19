@@ -230,8 +230,6 @@ Options:
   --database PATH        Path to face database (default: data_extract/person_medoids.pt)
 ```
 
-**Output Example:**
-![Face Detection & Emotion Analysis](images/faceDetection_emotion_analysis.png)
 
 ### **Emotion Analysis Only**
 
@@ -244,10 +242,6 @@ Options:
   --no-show              Process without displaying video
   --skip-frames N        Process every N frames (default: 2)
 ```
-
-**Output Example:**
-![Emotion Analysis Only](images/emotion_analysis_only.png)
-
 ### **Attention Analysis**
 
 ```bash
@@ -267,9 +261,6 @@ python attention_analysis.py --video videos/Team_3.mp4
 # - attention_report.json (analysis data)
 ```
 
-**Output Example:**
-![Attention Analysis](images/attention_analysis.png)
-
 ### **Basic Detection and Tracking**
 
 ```bash
@@ -279,9 +270,6 @@ Options:
   --video PATH           Path to input video file (default: videos/Team_3.mp4)
   --database PATH        Path to face database (default: data_extract/person_medoids.pt)
 ```
-
-**Output Example:**
-![Basic Detection and Tracking](images/detect_track_recognition.png)
 
 ---
 
