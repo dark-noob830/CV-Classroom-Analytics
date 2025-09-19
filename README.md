@@ -475,9 +475,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions, issues, or contributions:
 
 - **GitHub Issues**: [Create an issue](https://github.com/dark-noob830/CV-Classroom-Analytics/issues)
-- **Email**: [Your email here]
-- **Documentation**: See `SYSTEM_OVERVIEW.md` for detailed technical documentation
-
+- **Email**: [mahdiamr83@gmail.com]
 ---
 
 ## 🔮 Future Roadmap
